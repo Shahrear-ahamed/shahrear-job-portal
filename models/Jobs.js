@@ -12,7 +12,7 @@ const jobsSchema = mongoose.Schema({
         name: {
             type: String, required: [true, "Please provide hiring manager name"]
         }, id: {
-            type: ObjectId, ref: "hiringManager"
+            type: ObjectId, ref: "users"
         }
     }, location: {
         type: String, required: [true, "you have to add job location"], lowercase: true
@@ -42,6 +42,8 @@ const jobsSchema = mongoose.Schema({
         type: String,
         required: [true, "Please provide your contact details for job apply"]
     }
+}, {
+    timestamps: true,
 })
 
 const Jobs = mongoose.model("Jobs", jobsSchema)
