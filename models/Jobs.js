@@ -12,7 +12,7 @@ const jobsSchema = mongoose.Schema({
         name: {
             type: String, required: [true, "Please provide hiring manager name"]
         }, hUId: {
-            type: ObjectId, ref: "users"
+            type: ObjectId, ref: "Users"
         }
     }, location: {
         type: String, required: [true, "you have to add job location"], lowercase: true
