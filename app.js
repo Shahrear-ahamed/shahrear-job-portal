@@ -15,7 +15,7 @@ app.use(cors())
 // router are here
 
 app.use("/api/v1/jobs", jobsRouter)
-app.use("/api/v1/manager", managerRouter)
+app.use("/api/v1/manager/jobs", managerRouter)
 app.use("/api/v1/user", userRouter)
 
 app.get("/", (req, res) => {
