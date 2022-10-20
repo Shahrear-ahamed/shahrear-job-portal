@@ -11,7 +11,7 @@ const jobsSchema = mongoose.Schema({
     }, hiringManager: {
         name: {
             type: String, required: [true, "Please provide hiring manager name"]
-        }, id: {
+        }, hUId: {
             type: ObjectId, ref: "users"
         }
     }, location: {
@@ -35,9 +35,7 @@ const jobsSchema = mongoose.Schema({
         required: [true, "add total number of opening for this job"],
         min: [0, "Total number of opening can't be 0"]
     },
-    perks: {
-        type: String,
-    },
+    perks: [{type: String}],
     contactDetails: {
         type: String,
         required: [true, "Please provide your contact details for job apply"]
