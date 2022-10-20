@@ -1,4 +1,5 @@
 const express = require("express")
+const verifyUserByToken = require("../middleware/verifyUserByToken")
 const router = express.Router();
 const {
     registerUserController,
@@ -7,7 +8,7 @@ const {
 } = require("../controllers/user.controller")
 
 // routers are here
-router.get("/me", getSingleUser)
+router.get("/me", verifyUserByToken, getSingleUser)
 router.post("/signup", registerUserController)
 router.post("/login", loginUserController)
 
