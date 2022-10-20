@@ -1,3 +1,4 @@
+const JobApply = require("../models/JobApply");
 const Jobs = require("../models/Jobs");
 
 exports.getAllJobsForHManagerByIdServices = async (id) => {
@@ -9,6 +10,11 @@ exports.getAllJobsForHManagerByIdServices = async (id) => {
 };
 
 exports.getSingleJobForManagerByIsDetails = async (id) => {
-  const singleJob = await Jobs.find({ _id: id });
-  return singleJob;
+  const singleJob = await Jobs.findOne({ _id: id });
+  const appliedUser = await JobApply.findOne({ "jobDetails.jobId": id }).select(
+    "appliers -_id"
+  );
+  const applied = appliedUser?.appliers;
+  const totalApplied = appliedUser?.appliers?.length;
+  return { totalApplied, singleJob, applied };
 };
