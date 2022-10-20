@@ -19,7 +19,7 @@ exports.getSingleUser = async (req, res) => {
 exports.registerUserController = async (req, res) => {
     try {
         const result = await registerUserServices(req?.body);
-        const {password, ...userResult} = result.toObject()
+        const {password, ...userResult} = result.toObject();
 
         // generate a token for user
         const token = await generateToken(userResult);
