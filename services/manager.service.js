@@ -11,10 +11,11 @@ exports.getAllJobsForHManagerByIdServices = async (id) => {
 
 exports.getSingleJobForManagerByIsDetails = async (id) => {
   const singleJob = await Jobs.findOne({ _id: id });
-  const appliedUser = await JobApply.findOne({ "jobDetails.jobId": id })
-    .select("appliers -_id")
-    .populate({ path: "appliers.candidateId" });
-  const applied = appliedUser?.appliers;
-  const totalApplied = appliedUser?.appliers?.length;
-  return { totalApplied, singleJob, applied };
+  const allAppliers = await JobApply.findOne({
+    "jobDetails.jobId": id,
+  })
+    .populate("appliers.candidateId", "-password -updatedAt -createdAt -__v")
+    .select("appliers -_id");
+  const appliedUsers = allAppliers?.appliers;
+  return { singleJob, appliedUsers };
 };

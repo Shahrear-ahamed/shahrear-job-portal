@@ -81,12 +81,13 @@ User can apply for a job can’t apply after deadline and if already applied, th
 User can Signup/Register with post request <br>
 Demo Data: <br>
 {
-    "userName": "shahrear01",
-    "email": "its.shahrear@gmail.com",
-    "password": "Sh@1314435712",
+    "userName": "shahrear02",
+    "email": "test2@gmail.com",
+    "password": "test@1234",
     "firstName": "Shahrear",
     "lastName": "Ahamed"
 }
+user name must be unique otherwise you will get error
 
 #### POST /user/login			
 User can login  <br>

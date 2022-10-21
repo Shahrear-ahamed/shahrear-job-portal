@@ -11,14 +11,14 @@ const verifyUserByToken = require("../middleware/verifyUserByToken");
 router.get(
   "/",
   verifyUserByToken,
-  verifyUserAccess("hiring manager"),
+  verifyUserAccess("admin", "hiring manager"),
   getAllJobsForHManagerById
 );
 
 router.get(
   "/:id",
   verifyUserByToken,
-  verifyUserAccess("hiring manager"),
+  verifyUserAccess("admin", "hiring manager"),
   getASingleJobDetailsById
 );
 

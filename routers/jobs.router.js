@@ -15,7 +15,7 @@ router
   .route("/")
   .post(
     verifyUserByToken,
-    verifyUserAccess("hiring manager"),
+    verifyUserAccess("admin", "hiring manager"),
     createAJob
   )
   .get(getAllJobs);
@@ -29,7 +29,7 @@ router
   .get(getSingleJobById)
   .patch(
     verifyUserByToken,
-    verifyUserAccess("hiring manager"),
+    verifyUserAccess("admin", "hiring manager"),
     updateSingleJob
   );
 

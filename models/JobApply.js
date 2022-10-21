@@ -23,7 +23,7 @@ const jobApplySchema = mongoose.Schema(
           type: String,
           validate: [validator.isEmail, "your email is not valid"],
         },
-        candidateId: { type: ObjectId, ref: "users" },
+        candidateId: { type: ObjectId, ref: "Users" },
       },
     ],
   },

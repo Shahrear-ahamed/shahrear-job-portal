@@ -1,0 +1,56 @@
+[
+    {
+        "title": "Jr. React Developer",
+        "publishedDate": "2022-10-20",
+        "deadLine": "2022-11-28",
+        "hiringManager": {
+            "name": "Shahrear ahamed",
+            "hUId": "6350af7c4031eeb5a04a3f58"
+        },
+        "location": "Dhaka, bangladesh",
+        "jobType": "On-site",
+        "salary": 45000,
+        "description": "GET /manager/jobs/:id Get a job details by id (with applied candidates information and resume if any) Authorize the route to check if this job is created by the hiring manager who is trying to see the job details (optional) PATCH /jobs/:id Update a job Candidate routes GET /jobs Get all Jobs must be able to filter jobs by location, job type, salary range(BONUS) Must be able to sort jobs(BONUS) GET /jobs/:id Get job details with hiring manager info POST /jobs/:id/apply Apply for a job Can’t apply after deadline If already applied, then can’t apply again Can upload a resume(pdf)(BONUS)",
+        "totalOpening": 1,
+        "perks": [
+            "Salary review"
+        ],
+        "contactDetails": "its.shahrear@gmail.com"
+    },
+    {
+        "title": "Jr. Front end Developer",
+        "publishedDate": "2022-10-20",
+        "deadLine": "2022-11-28",
+        "hiringManager": {
+            "name": "Jhonkar",
+            "hUId": "6350af334031eeb5a04a3f56"
+        },
+        "location": "Dhaka, bangladesh",
+        "jobType": "On-site",
+        "salary": 20000,
+        "description": "GET /manager/jobs/:id Get a job details by id (with applied candidates information and resume if any) Authorize the route to check if this job is created by the hiring manager who is trying to see the job details (optional) PATCH /jobs/:id Update a job Candidate routes GET /jobs Get all Jobs must be able to filter jobs by location, job type, salary range(BONUS) Must be able to sort jobs(BONUS) GET /jobs/:id Get job details with hiring manager info POST /jobs/:id/apply Apply for a job Can’t apply after deadline If already applied, then can’t apply again Can upload a resume(pdf)(BONUS)",
+        "totalOpening": 1,
+        "perks": [
+            "Salary review"
+        ],
+        "contactDetails": "admin@gmail.com"
+    },
+    {
+        "title": "Wordpress Developer",
+        "publishedDate": "2022-10-20",
+        "deadLine": "2022-11-28",
+        "hiringManager": {
+            "name": "Jhonkar",
+            "hUId": "6350af334031eeb5a04a3f56"
+        },
+        "location": "Dhaka, bangladesh",
+        "jobType": "Remote",
+        "salary": 45000,
+        "description": "GET /manager/jobs/:id Get a job details by id (with applied candidates information and resume if any) Authorize the route to check if this job is created by the hiring manager who is trying to see the job details (optional) PATCH /jobs/:id Update a job Candidate routes GET /jobs Get all Jobs must be able to filter jobs by location, job type, salary range(BONUS) Must be able to sort jobs(BONUS) GET /jobs/:id Get job details with hiring manager info POST /jobs/:id/apply Apply for a job Can’t apply after deadline If already applied, then can’t apply again Can upload a resume(pdf)(BONUS)",
+        "totalOpening": 1,
+        "perks": [
+            "Salary review"
+        ],
+        "contactDetails": "admin@gmail.com"
+    }
+]
