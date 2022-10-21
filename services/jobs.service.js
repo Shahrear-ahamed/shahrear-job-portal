@@ -2,11 +2,15 @@ const JobApply = require("../models/JobApply");
 const Jobs = require("../models/Jobs");
 
 // get all jobs
-exports.getAllJobsServices = async () => {
-  const jobs = await Jobs.find({});
+exports.getAllJobsServices = async (filter, queries) => {
+  const jobs = await Jobs.find(filter)
+    .sort(queries?.sort)
+    .skip(queries?.skip)
+    .limit(queries?.limit);
 
-  const totalJobs = await Jobs.countDocuments();
-  return { totalJobs, jobs };
+  const totalJobs = await Jobs.countDocuments(filter);
+  const page = Math.ceil(totalJobs / (queries?.limit || 10));
+  return { totalJobs, page, jobs };
 };
 
 // get single job by id
