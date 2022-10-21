@@ -17,7 +17,7 @@ exports.getAllJobsServices = async (filter, queries) => {
 exports.getSingleJobByIdService = async (jobId) => {
   const singleJob = await Jobs.findOne({ _id: jobId }).populate({
     path: "hiringManager.hUId",
-    select: "-password",
+    select: "-password -updatedAt -createdAt -status -__v",
   });
   return singleJob;
 };
