@@ -34,7 +34,7 @@ exports.getAllJobs = async (req, res) => {
     const allJobs = await getAllJobsServices(filter, queries);
 
     // send user zero data response
-    if (allJobs?.jobs) {
+    if (!allJobs?.jobs) {
       return res.status(200).json({
         status: "success",
         message: "No jobs found with this searches",
