@@ -11,9 +11,10 @@ exports.getAllJobsServices = async () => {
 
 // get single job by id
 exports.getSingleJobByIdService = async (jobId) => {
-  const singleJob = await Jobs.findOne({ _id: jobId }).populate(
-    "hiringManager.hUId"
-  );
+  const singleJob = await Jobs.findOne({ _id: jobId }).populate({
+    path: "hiringManager.hUId",
+    select: "-password",
+  });
   return singleJob;
 };
 
