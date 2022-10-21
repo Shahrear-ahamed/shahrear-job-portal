@@ -61,3 +61,8 @@ exports.applyAJobByIdService = async (jobId, applyData) => {
   );
   return result;
 };
+
+exports.checkIsApplyThisJob = async (jobId) => {
+  const result = JobApply.findOne({ "jobDetails.jobId": jobId });
+  return result;
+};

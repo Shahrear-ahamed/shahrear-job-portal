@@ -4,7 +4,9 @@ const {
   getSingleJobByIdService,
   updateAJobByIdServices,
   applyAJobByIdService,
+  checkIsApplyThisJob,
 } = require("../services/jobs.service");
+const checkValidateDate = require("../utils/checkValidateDate");
 
 // get all jobs
 exports.getAllJobs = async (req, res) => {
@@ -93,6 +95,32 @@ exports.updateSingleJob = async (req, res) => {
 exports.applyAJob = async (req, res) => {
   try {
     const { id } = req?.params;
+    const { id: userId } = req?.user;
+    const appliedJob = await checkIsApplyThisJob(id);
+
+    // check is deadline over or not
+    const deadLineIs = appliedJob?.jobDeadline;
+
+    const isDeadlineFinish = checkValidateDate(deadLineIs);
+    if (!isDeadlineFinish) {
+      return res.status(400).json({
+        status: "fail",
+        message: "Apply date is finished, you can't apply for this job",
+      });
+    }
+
+    // check is user has or not
+    const applierUsers = appliedJob?.appliers;
+    const isUser = applierUsers.find((user) => user?.candidateId == userId);
+
+    if (isUser) {
+      return res.status(400).json({
+        status: "fail",
+        message: "You already applied for this job",
+      });
+    }
+
+    // if user don't apply in this job of deadline isn't over so we can access to apply this job
     const applyJob = await applyAJobByIdService(id, req?.body);
 
     res.status(200).json({ status: "success", message: applyJob });
